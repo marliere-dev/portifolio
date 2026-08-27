@@ -1,33 +1,55 @@
-name: Deploy Next.js to GitHub Pages
+name: Deploy portfolio to Oracle
 
 on:
   push:
     branches:
-      - main
+      - master
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: portfolio-production
+  cancel-in-progress: false
 
 jobs:
-  deploy:
+  verify:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+      - name: Validate static site
+        run: |
+          test -s index.html
+          test -s CNAME
+          ! rg -n "<(script|iframe)[^>]+src=['\"]http:" index.html
 
-      - name: Install dependencies
-        run: npm ci
+  deploy:
+    needs: verify
+    runs-on:
+      group: oracle-production
+      labels: [self-hosted, linux, arm64, oracle-production]
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
 
-      - name: Build static site
-        run: npm run build
+      - name: Upload and activate release
+        env:
+          RELEASE_ID: ${{ github.sha }}
+        run: |
+          remote_root=/home/ubuntu/marliere-portfolio
+          remote_release="$remote_root/releases/$RELEASE_ID"
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
+          install -d -m 2775 "$remote_release"
+          rsync -a --delete \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude 'deploy/' \
+            --exclude 'hackerfriend-v3/' \
+            ./ "$remote_release/"
+
+          test -s "$remote_release/index.html"
+          ln -sfn "releases/$RELEASE_ID" "$remote_root/current"
+          find "$remote_root/releases" -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' \
+            | sort -nr | tail -n +6 | cut -d' ' -f2- | xargs -r rm -rf
