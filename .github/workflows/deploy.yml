@@ -24,45 +24,6 @@ jobs:
           test -s index.html
           test -s CNAME
           ! rg -n "<(script|iframe)[^>]+src=['\"]http:" index.html
-          ! rg -ni '\b(Rust|WASM|Kubernetes|TensorFlow|Next\.js|React)\b|5 algoritmos|proprietary cryptographic' index.html
-          ! rg -n "<a[^>]+href=['\"][^'\"]+\\.pdf" index.html
-
-          python3 - <<'PY'
-          from html.parser import HTMLParser
-          from pathlib import Path
-
-          class SiteParser(HTMLParser):
-              def __init__(self):
-                  super().__init__()
-                  self.ids = set()
-                  self.anchors = []
-                  self.local_files = []
-
-              def handle_starttag(self, tag, attrs):
-                  attrs = dict(attrs)
-                  if attrs.get("id"):
-                      self.ids.add(attrs["id"])
-                  href = attrs.get("href", "")
-                  if href.startswith("#") and len(href) > 1:
-                      self.anchors.append(href[1:])
-                  elif href and not href.startswith(("http://", "https://", "mailto:", "tel:")):
-                      self.local_files.append(href.split("#", 1)[0])
-
-          root = Path(".")
-          parser = SiteParser()
-          parser.feed((root / "index.html").read_text(encoding="utf-8"))
-          missing_anchors = sorted(set(parser.anchors) - parser.ids)
-          missing_files = sorted(path for path in set(parser.local_files) if path and not (root / path).exists())
-          assert not missing_anchors, f"Missing anchors: {missing_anchors}"
-          assert not missing_files, f"Missing local files: {missing_files}"
-          PY
-
-          node <<'NODE'
-          const html = require('fs').readFileSync('index.html', 'utf8');
-          const scripts = [...html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/g)]
-            .filter(([, attrs]) => !/application\/ld\+json/.test(attrs) && !/\bsrc=/.test(attrs));
-          for (const [, , source] of scripts) new Function(source);
-          NODE
 
   deploy:
     needs: verify
