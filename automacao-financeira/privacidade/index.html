@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Política de privacidade da Automação Financeira Pessoal de Gabriel Souza.">
+  <title>Política de privacidade — Automação Financeira Pessoal</title>
+  <link rel="stylesheet" href="/automacao-financeira/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/automacao-financeira/">Gabriel Souza / Automação Financeira</a>
+      <a class="header-link" href="/automacao-financeira/">Página inicial</a>
+    </div>
+  </header>
+
+  <main class="shell policy">
+    <div class="eyebrow">Automação Financeira Pessoal</div>
+    <h1>Política de privacidade</h1>
+    <p class="updated">Última atualização: 7 de outubro de 2026.</p>
+    <p class="intro">Esta integração é usada apenas por Gabriel Souza com sua própria conta Google. Esta política descreve o tratamento dos dados acessados pelos fluxos financeiros executados em sua instalação privada do n8n.</p>
+
+    <section aria-labelledby="dados">
+      <h2 id="dados">Dados acessados</h2>
+      <p>A integração pode ler mensagens do Gmail relacionadas a faturas e a um fluxo pessoal de Pix, incluindo remetente, assunto, data, conteúdo e anexos necessários ao processamento. Ela também pode enviar e-mails com relatórios e resultados desses fluxos. O acesso é limitado, na operação, às mensagens usadas por essas automações.</p>
+    </section>
+
+    <section aria-labelledby="uso">
+      <h2 id="uso">Como os dados são usados</h2>
+      <ul>
+        <li>Extrair e validar dados de faturas recebidas por e-mail e registrar as transações em uma planilha privada no Google Sheets.</li>
+        <li>Produzir um relatório financeiro e enviá-lo ao endereço configurado pelo proprietário.</li>
+        <li>Processar mensagens de um fluxo pessoal de Pix, solicitar sua geração e enviar o resultado ao destinatário configurado.</li>
+      </ul>
+      <p>Os dados obtidos pelas APIs do Google não são usados para publicidade nem vendidos.</p>
+    </section>
+
+    <section aria-labelledby="armazenamento">
+      <h2 id="armazenamento">Processamento e armazenamento</h2>
+      <p>O n8n roda em um servidor privado na Oracle Cloud. Os anexos de fatura são processados por um serviço interno de extração; as transações resultantes ficam na planilha privada do proprietário. A caixa de e-mail permanece no Gmail. Dados operacionais, como identificadores de importação e de relatório, podem ficar nas tabelas auxiliares da automação e em backups do servidor.</p>
+      <p>Não há prazo automático de exclusão definido para os dados persistidos. O proprietário administra a exclusão na conta Google, na planilha e na infraestrutura que controla.</p>
+    </section>
+
+    <section aria-labelledby="compartilhamento">
+      <h2 id="compartilhamento">Serviços e destinatários</h2>
+      <p>O processamento usa Gmail e Google Sheets, além da infraestrutura privada hospedada na Oracle Cloud. O fluxo de Pix envia os dados necessários à solicitação para o serviço <a href="https://pix.julioneto.com.br/">pix.julioneto.com.br</a>. E-mails produzidos pelos fluxos são enviados somente aos destinatários configurados pelo proprietário. Avisos técnicos de falha podem ser enviados ao serviço ntfy privado, sem anexos ou conteúdo integral das mensagens.</p>
+    </section>
+
+    <section aria-labelledby="controle">
+      <h2 id="controle">Controle e contato</h2>
+      <p>O proprietário pode revogar a autorização da integração nas <a href="https://myaccount.google.com/permissions">configurações de acesso da Conta Google</a>. Para dúvidas sobre esta integração ou seus dados, escreva para <a href="mailto:gabrielmarliere2005@gmail.com">gabrielmarliere2005@gmail.com</a>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span>© 2026 Gabriel Souza</span>
+      <a href="/automacao-financeira/">Voltar à página inicial</a>
+    </div>
+  </footer>
+</body>
+</html>
