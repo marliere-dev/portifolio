@@ -38,7 +38,7 @@ jobs:
         env:
           RELEASE_ID: ${{ github.sha }}
         run: |
-          remote_root=/home/ubuntu/marliere-portfolio
+          remote_root=/srv/apps/portfolio/site
           remote_release="$remote_root/releases/$RELEASE_ID"
 
           install -d -m 2775 "$remote_release"
