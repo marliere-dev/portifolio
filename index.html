@@ -3,8 +3,80 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Gabriel Souza — Backend Developer · Integrações & Automação</title>
-<meta name="description" content="Backend developer especializado em integrações críticas, automação e confiabilidade de sistemas em produção com TypeScript, Node.js e Go." />
+<title>Gabriel Marliere Souza — Backend Developer · Integrações & Automação</title>
+<meta name="description" content="Gabriel Marliere Souza é backend developer em Belo Horizonte, especializado em integrações críticas, automação e confiabilidade de sistemas em produção com TypeScript, Node.js e Go." />
+<link rel="canonical" href="https://marliere.dev/" />
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<meta name="author" content="Gabriel Marliere Souza" />
+
+<meta property="og:type" content="profile" />
+<meta property="og:site_name" content="Marliere" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:url" content="https://marliere.dev/" />
+<meta property="og:title" content="Gabriel Marliere Souza — Backend Developer" />
+<meta property="og:description" content="Integrações críticas, automação e sistemas resilientes com TypeScript, Node.js e Go." />
+<meta property="og:image" content="https://marliere.dev/og.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Gabriel Marliere Souza, backend developer · marliere.dev" />
+<meta property="profile:first_name" content="Gabriel" />
+<meta property="profile:last_name" content="Marliere Souza" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Gabriel Marliere Souza — Backend Developer" />
+<meta name="twitter:description" content="Integrações críticas, automação e sistemas resilientes com TypeScript, Node.js e Go." />
+<meta name="twitter:image" content="https://marliere.dev/og.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://marliere.dev/#person",
+      "name": "Gabriel Marliere Souza",
+      "givenName": "Gabriel",
+      "familyName": "Marliere Souza",
+      "alternateName": ["Gabriel Marliere", "Gabriel Souza"],
+      "jobTitle": "Backend Developer",
+      "description": "Backend developer focado em integrações críticas, automação e sistemas resilientes.",
+      "url": "https://marliere.dev/",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Belo Horizonte",
+        "addressRegion": "MG",
+        "addressCountry": "BR"
+      },
+      "knowsAbout": ["Backend development", "TypeScript", "Node.js", "Go", "Integrações de sistemas", "Automação", "Confiabilidade de sistemas"],
+      "sameAs": [
+        "https://github.com/Gabrielmarlier3",
+        "https://github.com/marliere-dev",
+        "https://www.linkedin.com/in/gabrielmsa"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://marliere.dev/#website",
+      "url": "https://marliere.dev/",
+      "name": "Marliere",
+      "alternateName": "marliere.dev",
+      "description": "Site de Gabriel Marliere Souza, com o portfólio dele e projetos próprios.",
+      "inLanguage": "pt-BR",
+      "publisher": { "@id": "https://marliere.dev/#person" }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://marliere.dev/#profile",
+      "url": "https://marliere.dev/",
+      "name": "Gabriel Marliere Souza — Backend Developer",
+      "inLanguage": "pt-BR",
+      "isPartOf": { "@id": "https://marliere.dev/#website" },
+      "mainEntity": { "@id": "https://marliere.dev/#person" },
+      "dateModified": "2026-11-08"
+    }
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -140,6 +212,11 @@
     color: var(--fg);
   }
   h1.hero-title .accent { color: var(--accent); }
+  h1.hero-title .hero-name {
+    display: block; margin-bottom: 20px;
+    font-family: var(--mono); font-size: 15px; font-weight: 500;
+    line-height: 1.4; letter-spacing: 0; color: var(--fg-2);
+  }
 
   .hero-sub {
     font-size: 17px; line-height: 1.6; color: var(--fg-3); max-width: 520px;
@@ -483,6 +560,9 @@
   .proj-card:hover { border-color: var(--line-hi); }
   .proj-card:hover .proj-arrow { transform: translate(2px, -2px); color: var(--fg); }
   .proj-card.span-2 { grid-column: span 2; }
+  .proj-link::after { content: ''; position: absolute; inset: 0; }
+  .proj-link:focus-visible { outline: none; }
+  .proj-card:has(.proj-link:focus-visible) { border-color: var(--accent-line); }
 
   .proj-kicker {
     display: flex; justify-content: space-between; align-items: center;
@@ -555,6 +635,7 @@
   }
   .cta p { font-size: 16px; color: var(--fg-3); max-width: 520px; margin: 0 auto 36px; line-height: 1.6; }
   .cta-actions { display: inline-flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .cta p.site-about { font-size: 14px; max-width: 600px; margin: 40px auto 0; }
 
   .cta-channels {
     margin-top: 56px;
@@ -623,6 +704,8 @@
     .nav-lang { display: flex; }
   }
   @media (max-width: 600px) {
+    .brand-sep, .brand-role, .nav-links .nav-cta { display: none; }
+    .brand-name { white-space: nowrap; }
     .proj-viz { display: none; }
     .proj-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
   }
@@ -644,7 +727,7 @@
   <div class="container nav-inner">
     <a class="brand" href="#">
       <span class="brand-mark"></span>
-      <span class="brand-name">Gabriel Souza</span>
+      <span class="brand-name">Gabriel Marliere Souza</span>
       <span class="brand-sep">/</span>
       <span class="brand-role" data-i18n="role">Backend · Integrações</span>
     </a>
@@ -671,6 +754,7 @@
         <span data-i18n="hero.eyebrow">v2.0 · Aberto a conversas</span>
       </span>
       <h1 class="hero-title">
+        <span class="hero-name">Gabriel Marliere Souza</span>
         <span data-i18n="hero.title1">Backend developer</span><br>
         <span class="serif" data-i18n="hero.title2">focado em</span>
         <span data-i18n="hero.title3">integrações críticas,</span><br>
@@ -940,6 +1024,28 @@
           <div><span class="n">MCP</span><span class="l">regras · validação</span></div>
         </div>
       </article>
+
+      <article class="proj-card span-2">
+        <div class="proj-kicker">
+          <span data-i18n="pr.c6.k">PROJETO PRÓPRIO · 2026</span>
+          <span class="status" data-i18n="pr.status.live">no ar</span>
+        </div>
+        <h3 class="proj-title">
+          <a class="proj-link" href="https://boradeque.marliere.dev/">Bora de quê?</a>
+          <span class="proj-arrow">↗</span>
+        </h3>
+        <p class="proj-desc" data-i18n="pr.c6.d">
+          Site público para descobrir quais jogos da Steam um grupo de amigos tem em comum:
+          cola o perfil de 2 a 8 pessoas e a lista sai já filtrada para multiplayer, com link
+          que abre com prévia no WhatsApp e no Discord.
+        </p>
+        <div class="proj-stats">
+          <div><span class="n">Next.js</span><span class="l">front-end</span></div>
+          <div><span class="n">NestJS</span><span class="l" data-i18n="pr.c6.api">API própria</span></div>
+          <div><span class="n">Steam</span><span class="l">Web API</span></div>
+          <div><span class="n">2–8</span><span class="l" data-i18n="pr.c6.people">perfis por comparação</span></div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -1036,12 +1142,14 @@
         <div class="sub">@gmail.com</div>
       </a>
     </div>
+
+    <p class="site-about" data-i18n="ct.about">Marliere (marliere.dev) é o site de Gabriel Marliere Souza, desenvolvedor backend em Belo Horizonte, MG. Aqui ficam o portfólio dele e projetos próprios, como o Bora de quê?, que mostra os jogos da Steam que um grupo de amigos tem em comum.</p>
   </div>
 </section>
 
 <footer>
   <div class="container footer-inner">
-    <div>© 2026 — Gabriel Souza · <span data-i18n="f.built">Construído em HTML, sem frameworks.</span></div>
+    <div>© 2026 — Gabriel Marliere Souza · marliere.dev · <span data-i18n="f.built">Construído em HTML, sem frameworks.</span></div>
     <div class="footer-meta">
       <span class="live" data-i18n="f.live">sistema online</span>
       <span data-i18n="f.ver">v2.0 — Set 2026</span>
@@ -1341,6 +1449,11 @@ const I18N = {
     'pr.c4.d': 'A lock-based protection solved the symptom but caused contention in production. The change was rolled back, investigated through tracing and replaced by an idempotency guard aligned with the real cross-service flow.',
     'pr.c5.t': 'A reusable foundation for Go services',
     'pr.c5.d': 'On top of an existing architecture, a kit, template and gateway consolidate shared behavior and reduce repetition. Rules, MCPs and validation guide AI agents without transferring technical accountability for the outcome.',
+    'pr.c6.k': 'SIDE PROJECT · 2026',
+    'pr.c6.d': 'A public site that shows which Steam games a group of friends have in common: paste 2 to 8 profiles and the list comes back filtered for multiplayer, with a link that unfurls with a preview on WhatsApp and Discord.',
+    'pr.c6.api': 'own API',
+    'pr.c6.people': 'profiles per comparison',
+    'pr.status.live': 'live',
     'pr.status.prod': 'in production',
     'pr.status.delivered': 'delivered',
     'pr.months': '23 months',
@@ -1372,6 +1485,7 @@ const I18N = {
     'ct.t3': 'The next phase starts here.',
     'ct.sub': 'I am open to roles and conversations about backend, integrations and reliability — especially where production context and technical accountability matter.',
     'ct.cv': 'Download CV (PDF)',
+    'ct.about': 'Marliere (marliere.dev) is the website of Gabriel Marliere Souza, a backend developer based in Belo Horizonte, Brazil. It hosts his portfolio and his own projects, such as Bora de quê?, which shows the Steam games a group of friends have in common.',
     'ch.li': 'Open to messages',
     'ch.gh': 'Technical history · 23 months',
     'ch.cal': '30min · technical call',
